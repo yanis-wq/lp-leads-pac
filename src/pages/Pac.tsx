@@ -6,6 +6,7 @@ const config: LeadPageConfig = {
   subtitle:
     "KRNO identifie les propriétaires éligibles à une pompe à chaleur grâce à l'IA, et vous envoie en exclusivité des leads avec un projet d'installation concret.",
   ctaUrl: "https://tally.so/r/Gxo6Jk",
+  lpParam: "pac",
   features: [
     {
       icon: Shield,
