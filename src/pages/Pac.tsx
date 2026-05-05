@@ -2,10 +2,10 @@ import LeadPageLayout, { LeadPageConfig } from "@/components/LeadPageLayout";
 import { Shield, Target, Phone, Zap } from "lucide-react";
 
 const config: LeadPageConfig = {
-  badge: "Leads PAC exclusifs",
   title: "Des leads PAC 100% qualifiés",
   subtitle:
-    "KRNO identifie les propriétaires éligibles à une pompe à chaleur grâce à l'IA, et vous envoie en exclusivité des leads avec un projet concret.",
+    "KRNO identifie les propriétaires éligibles à une pompe à chaleur grâce à l'IA, et vous envoie en exclusivité des leads avec un projet d'installation concret.",
+  ctaUrl: "https://tally.so/r/Gxo6Jk",
   features: [
     {
       icon: Shield,
@@ -31,23 +31,15 @@ const config: LeadPageConfig = {
     {
       icon: Zap,
       title: "Temps réel",
-      desc: "Transmis instantanément par email, Google Sheet ou webhook.",
+      desc: "Transmis instantanément par mail, SMS et Google Sheet.",
       iconBg: "bg-orange-100",
       iconColor: "text-orange-500",
     },
   ],
-  statsTitle: "Tous types de projets PAC couverts",
-  statsSubtitle:
-    "De la PAC air/eau à la PAC géothermique, nos leads couvrent l'ensemble de vos missions.",
-  stats: [
-    { title: "PAC air/eau", desc: "Remplacement chaudière fioul ou gaz par une pompe à chaleur." },
-    { title: "PAC air/air", desc: "Climatisation réversible pour maisons individuelles ou appartements." },
-    { title: "PAC géothermique", desc: "Projets de grande envergure, forte intention d'achat." },
-  ],
-  productLabel: "Leads PAC — Pompe à Chaleur",
+  productLabel: "Leads PAC — Pompe à Chaleur air/eau BAR-TH-171",
   productDesc:
-    "Propriétaires souhaitant remplacer leur système de chauffage par une pompe à chaleur. Projet identifié, contact vérifié, délai connu.",
-  pricingBannerText: "LEADS PAC · OFFRE LIMITÉE AVRIL",
+    "Propriétaires souhaitant remplacer leur chauffage par une pompe à chaleur. Projet identifié, éligibilité CEE vérifiée, contact qualifié.",
+  pricingBannerText: "LEADS PAC · OFFRE MAI 2026",
   plans: [
     {
       name: "DÉCOUVERTE",
@@ -67,6 +59,7 @@ const config: LeadPageConfig = {
         "Sans engagement",
       ],
       cta: "Choisir Découverte →",
+      ctaUrl: "https://tally.so/r/Gxo6Jk",
       highlighted: false,
       accentColor: false,
     },
@@ -89,6 +82,7 @@ const config: LeadPageConfig = {
         "Partenariat backlink SEO",
       ],
       cta: "Choisir Croissance →",
+      ctaUrl: "https://tally.so/r/Gxo6Jk",
       highlighted: true,
       accentColor: true,
     },
@@ -109,6 +103,7 @@ const config: LeadPageConfig = {
         "Intégration CRM sur mesure",
       ],
       cta: "Choisir Accélérateur →",
+      ctaUrl: "https://tally.so/r/Gxo6Jk",
       highlighted: false,
       accentColor: false,
     },

@@ -31,18 +31,16 @@ export interface LeadPlan {
   catalogPrice: string;
   features: string[];
   cta: string;
+  ctaUrl: string;
   highlighted: boolean;
   accentColor: boolean;
 }
 
 export interface LeadPageConfig {
-  badge: string;
   title: string;
   subtitle: string;
+  ctaUrl: string;
   features: LeadFeature[];
-  statsTitle: string;
-  statsSubtitle: string;
-  stats: LeadStat[];
   productLabel: string;
   productDesc: string;
   pricingBannerText: string;
@@ -76,7 +74,7 @@ const press = [
 // ─── Template ────────────────────────────────────────────────────────────────
 
 const LeadPageLayout = ({ config }: { config: LeadPageConfig }) => {
-  const { badge, title, subtitle, features, statsTitle, statsSubtitle, stats,
+  const { title, subtitle, ctaUrl, features,
     productLabel, productDesc, pricingBannerText, plans } = config;
 
   return (
@@ -89,16 +87,6 @@ const LeadPageLayout = ({ config }: { config: LeadPageConfig }) => {
           className="w-full max-w-6xl mb-10"
         >
           <KrnoLogo />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.05 }}
-          className="flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-2 mb-6 shadow-sm"
-        >
-          <span className="w-2 h-2 rounded-full bg-red-500 inline-block" />
-          <span className="text-sm font-medium text-gray-700">{badge}</span>
         </motion.div>
 
         <motion.h1
@@ -130,7 +118,7 @@ const LeadPageLayout = ({ config }: { config: LeadPageConfig }) => {
         </motion.div>
 
         <motion.a
-          href="#pricing"
+          href={ctaUrl}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
@@ -176,47 +164,6 @@ const LeadPageLayout = ({ config }: { config: LeadPageConfig }) => {
                   </div>
                   <h3 className="font-bold text-lg mb-2">{f.title}</h3>
                   <p className="text-gray-500 text-sm">{f.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── Stats ── */}
-        <section className="py-16 px-4 bg-gray-50">
-          <div className="max-w-5xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-center mb-4"
-            >
-              {statsTitle}
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="text-gray-500 text-center mb-10 max-w-xl mx-auto"
-            >
-              {statsSubtitle}
-            </motion.p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-6 max-w-3xl mx-auto">
-              {stats.map((s, i) => (
-                <motion.div
-                  key={s.title}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-orange-500 mt-0.5 shrink-0 text-lg">◆</span>
-                  <div>
-                    <h3 className="font-bold text-base mb-1">{s.title}</h3>
-                    <p className="text-gray-500 text-sm">{s.desc}</p>
-                  </div>
                 </motion.div>
               ))}
             </div>
@@ -312,7 +259,9 @@ const LeadPageLayout = ({ config }: { config: LeadPageConfig }) => {
                   </ul>
 
                   <a
-                    href="#"
+                    href={plan.ctaUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`w-full text-center font-bold py-3.5 rounded-xl transition-transform hover:scale-[1.02] ${
                       plan.highlighted
                         ? "bg-red-500 text-white shadow-md"
